@@ -1,0 +1,5 @@
+geekhub_home:
+    resource: "@GeekhubHomeBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
