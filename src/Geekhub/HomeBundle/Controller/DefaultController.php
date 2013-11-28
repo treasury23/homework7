@@ -3,17 +3,14 @@
 namespace Geekhub\HomeBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 
 class DefaultController extends Controller
 {
-    /**
-     * @Route("/hello/{name}")
-     * @Template()
-     */
-    public function indexAction($name)
+
+    public function indexAction()
     {
-        return array('name' => $name);
+        $name = $this->container->get('simple_service')->show();
+
+        return $this->render('GeekhubHomeBundle:Default:index.html.twig', array('name' => $name));
     }
 }
